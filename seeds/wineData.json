@@ -1,0 +1,62 @@
+[
+    {
+       "category": "Red Wine",
+       "brand": "Hall Ranch",
+       "type": "Cabernet Sauvignon",
+       "flavor": "Black Currant, Cedar"
+    },
+    {
+        "category": "White Wine",
+        "brand": "Kia Ora",
+        "type": "Sauvignon Blanc",
+        "flavor": "Passionfruit, Lime Zest"
+    },
+    {
+        "category": "Sparkling Wine",
+        "brand": "",
+        "type": "",
+        "flavor": ""
+    },
+    {
+        "category": "Red Wine",
+        "brand": "",
+        "type": "",
+        "flavor": ""
+    },
+    {
+        "category": "White Wine",
+        "brand": "",
+        "type": "",
+        "flavor": ""
+    },
+    {
+        "category": "Sparkling Wine",
+        "brand": "",
+        "type": "",
+        "flavor": ""
+    },
+    {
+        "category": "Red Wine",
+        "brand": "",
+        "type": "",
+        "flavor": ""
+    },
+    {
+        "category": "White Wine",
+        "brand": "",
+        "type": "",
+        "flavor": ""
+    },
+    {
+        "category": "Red Wine",
+        "brand": "",
+        "type": "",
+        "flavor": ""
+    },
+    {
+        "category": "White Wine",
+        "brand": "",
+        "type": "",
+        "flavor": ""
+    }
+]
