@@ -12,7 +12,7 @@ const routes = require('./controllers');
 // Import sequelize connection
 const sequelize = require('./config/connection');
 // Import the custom helper methods
-// const helpers = require('./utils/helpers');
+const helpers = require('./utils/helpers');
 
 // Initialize an instance of Express.js
 const app = express();
