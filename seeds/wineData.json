@@ -13,50 +13,50 @@
     },
     {
         "category": "Sparkling Wine",
-        "brand": "",
-        "type": "",
-        "flavor": ""
+        "brand": "La Vostra",
+        "type": "Prosecco",
+        "flavor": "Apple, Honeysuckle"
     },
     {
         "category": "Red Wine",
-        "brand": "",
-        "type": "",
-        "flavor": ""
+        "brand": "D'Autrefois",
+        "type": "Pinot Noir",
+        "flavor": "Cherry, Raspberry"
     },
     {
         "category": "White Wine",
-        "brand": "",
-        "type": "",
-        "flavor": ""
+        "brand": "69 Miles",
+        "type": "Chardonnay",
+        "flavor": "Citrus, Vanilla"
     },
     {
         "category": "Sparkling Wine",
-        "brand": "",
-        "type": "",
-        "flavor": ""
+        "brand": "Borrasca",
+        "type": "Cava Brut",
+        "flavor": "Apple, Pear"
     },
     {
         "category": "Red Wine",
-        "brand": "",
-        "type": "",
-        "flavor": ""
+        "brand": "URO",
+        "type": "Tempranillo",
+        "flavor": "Black Fruit, Spice"
     },
     {
         "category": "White Wine",
-        "brand": "",
-        "type": "",
-        "flavor": ""
+        "brand": "Titus",
+        "type": "Sauvignon Blanc",
+        "flavor": "Melon, Lemon"
     },
     {
         "category": "Red Wine",
-        "brand": "",
-        "type": "",
-        "flavor": ""
+        "brand": "Harvester",
+        "type": "Cabernet Sauvignon",
+        "flavor": "Blueberry, Dark Fruit"
     },
     {
         "category": "White Wine",
-        "brand": "",
-        "type": "",
-        "flavor": ""
+        "brand": "Conte Fini",
+        "type": "Pinot Grigio",
+        "flavor": "Citrus, Mineral"
     }
 ]
