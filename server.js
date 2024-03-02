@@ -4,7 +4,7 @@ const path = require('path');
 const express = require('express');
 
 const session = require('express-session');
-const exphbs = require('express-handlebars');
+// const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Import routes
@@ -45,7 +45,7 @@ const sess = {
 app.use(session(sess));
 
 // Incorporate the custom helper methods
-const hbs = exphbs.create({ helpers });
+// const hbs = exphbs.create({ helpers });
 
 // Set Handlebars as the default template engine
 app.engine('handlebars', hbs.engine);
