@@ -1,18 +1,18 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Read Red and White</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 
 <body>
     <div class="flex-column justify-space-around">
         <header class="display-flex justify-space-between align-center p-2">
-            <h1 class="bg-blue-400 text-xl">Read Red and White</h1>
-            <nav class="bg-yellow-400 ">
+            <h1 class="bg-blue-600 text-xl">Read Red and White</h1>
+            <nav class="bg-green-400">
                 {{#if logged_in}}
                 <a href="/">Home</a> |
                 <a href="/profile">Profile</a> |
@@ -24,7 +24,7 @@
                 {{/if}}
             </nav>
         </header>
-        <main class="container container-fluid mt-5">
+        <main class="container container-fluid mt-5 bg-purple-500">
             {{{ body }}}
         </main>
     </div>
