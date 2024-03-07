@@ -1,16 +1,36 @@
-fetch("https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699")
+const url = "https://www.googleapis.com/books/v1/volumes?q=";
+
+fetch("https://www.googleapis.com/books/v1/volumes?q=time&printType=books")
+
 .then(function(res) {
     return res.json();
+    
 })
 .then(function(result) {
-    title = result.items[0].volumeInfo.title;
-    description = result.items[0].volumeInfo.description;
+    title = result.items;
+    // description = result.items[0].volumeInfo.description;
     console.log(title);
-    console.log(description);
+    // console.log(description);
+ 
 })
 .then(function(error) {
     console.log(error);
 })
+
+//this variable will read what the user searches in the search bar from the html
+//var titleInput = document.querySelector('.search-input');
+searchBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    fetch(url + titleInput.value + "print")
+
+})
+
+
+
+function fetchdata() {
+    const url = "https://www.googleapis.com/books/v1/volumes?q=time&printType=books";
+
+}
 
 
 
