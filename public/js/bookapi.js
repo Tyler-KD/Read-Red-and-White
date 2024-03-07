@@ -21,7 +21,7 @@ fetch("https://www.googleapis.com/books/v1/volumes?q=time&printType=books")
 //var titleInput = document.querySelector('.search-input');
 searchBtn.addEventListener("click", function(event) {
     event.preventDefault();
-    fetch(url + titleInput.value + "print")
+    fetch(url + titleInput.value + "printType=books")
 
 })
 
