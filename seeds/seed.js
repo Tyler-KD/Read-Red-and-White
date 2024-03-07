@@ -13,18 +13,20 @@ const seedDatabase = async () => {
         returning: true,
     });
 
-    for (const review of reviewData) {
-        await Review.create({
-            ...review,
-            user_id: users[Math.floor(Math.random() * users.length)].id,
-        });
-    };
+    // Pass through Review
+    const reviews = await Review.bulkCreate(reviewData.map(review => ({
+        ...review,
+        user_id: users[Math.floor(Math.random() * users.length)].id,
+    })), {
+        individualHooks: true,
+        returning: true,
+    });
 
     for (const wine of wineData) {
         await Wine.create({
             ...wine,
             user_id: users[Math.floor(Math.random() * users.length)].id,
-            // review_id: reviews[Math.floor(Math.random() * reviews.length)].id,
+            review_id: reviews[Math.floor(Math.random() * reviews.length)].id,
         });
     };
 
