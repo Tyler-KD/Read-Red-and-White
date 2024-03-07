@@ -33,14 +33,14 @@ searchBtn.addEventListener("click", function(event) {
         return response.json();
     })
     .then(data => {
+        console.log(data);
         //bookTitles.textContent = "";
-        for ( i = 0; i < data.results.length; i++) {
-            if (data.result[i].volumeInfo.title !== null) {
-                console.log(data.result[i].volumeInfo.title);
+        for ( i = 0; i < data.length; i++) {
+            if (data.result.items[i].volumeInfo.title !== null) {
+                console.log(data.result.items[i].volumeInfo.title);
             }
-        }
+       }
     })
-
 })
 
 
