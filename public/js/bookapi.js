@@ -28,12 +28,12 @@ var searchBtn = document.querySelector('.search-btn')
 searchBtn.addEventListener("click", function(event) {
     event.preventDefault();
 
-    fetch(url + titleInput.value + "printType=books")
+    fetch(url + titleInput.value + "&printType=books&maxResults=10")
     .then(function (response) {
         return response.json();
     })
     .then(data => {
-        bookTitles.textContent = "";
+        //bookTitles.textContent = "";
         for ( i = 0; i < data.results.length; i++) {
             if (data.result[i].volumeInfo.title !== null) {
                 console.log(data.result[i].volumeInfo.title);
