@@ -9,23 +9,24 @@
 </head>
 
 
-<body>
-    <div class="flex-column justify-space-around">
-        <header class="bg-purple-400 display-flex justify-space-between align-center p-2">
-            <h1 class="bg-blue-600 text-4xl">Read Red and White</h1>
-            <nav class="bg-green-400 text-red-500">
+<body class="bg-slate-600">
+    <div class="place-content-center">
+        <header class="bg-purple-400 display-flex justify-space-between align-center p-6 py-6">
+            <h1 class="bg-blue-600 text-8xl text-center font-semibold">Read Red and White</h1>
+       
+        </header>
+        <nav class="bg-green-500 text-5xl text-center py-2 my-4">
                 {{#if logged_in}}
                 <a href="/">Home</a> |
                 <a href="/profile">Profile</a> |
                 <button class="no-button" id="logout">Logout</button>
                 {{else}}
                 <a href="/">Home</a> |
-                <a href="/profile" class="bg-yellow-300 text-red-600">Profile</a> |
+                <a href="/profile">Profile</a> |
                 <a href="/login">Login</a>
                 {{/if}}
-            </nav>
-        </header>
-        <main class="container container-fluid mt-5 bg-purple-500">
+        </nav>
+        <main>
             {{{ body }}}
         </main>
     </div>
