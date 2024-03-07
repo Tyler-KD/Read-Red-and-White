@@ -7,21 +7,24 @@ const withAuth = require('../utils/auth');
 // Route to render homepage
 router.get("/", async (req, res) => {
     try {
+        // Find all book reviews with associated usernames
         const reviewData = await Review.findAll({
             include: [
                 {
                     model: User,
-                    attributes: ["username"]
-                }
+                    attributes: ["username"],
+                },
             ],
         });
+        // Convert blog data to plain JavaScript object
         const reviews = reviewData.map((review) => review.get({ plain: true }));
-
+        // Render the homepage with book reviews and login status
         res.render('homepage', {
             reviews,
             logged_in: req.session.logged_in,
         });
     } catch (err) {
+        // If there is an error, return 500 status code error message
         res.status(500).json(err);
     }
 });
