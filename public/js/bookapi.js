@@ -22,6 +22,12 @@ fetch("https://www.googleapis.com/books/v1/volumes?q=time&printType=books")
 searchBtn.addEventListener("click", function(event) {
     event.preventDefault();
     fetch(url + titleInput.value + "printType=books")
+    .then(function (response) {
+        return response.json();
+    })
+    .then(data => {
+        
+    })
 
 })
 
