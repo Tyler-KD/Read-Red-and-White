@@ -1,14 +1,14 @@
 {{#each reviews as |review| }}
 <div class="row mb-4 blog">
     <div class="col-md-5 bg-blue-400">
-        <div class="col-md-5 bg-red-400">
-            <h2>
+        <div class="col-md-5 bg-blue-400">
+            <h2 class="text-3xl">
                 <a href="/review/{{review.id}}">{{review.title}}</a>
             </h2>
-            <p class="text-xl">Created by {{review.user.username}} on {{format_date review.date_created}}</p>
+            <p class="text-2xl">Created by {{review.user.username}} on {{format_date review.date_created}}</p>
 
         </div>
-        <div class="col-md-7 bg-red-600">
+        <div class="text-xl col-md-7 bg-red-300">
             <p>
                 {{review.content}}
             </p>
