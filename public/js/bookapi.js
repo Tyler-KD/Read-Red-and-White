@@ -1,42 +1,54 @@
 const url = "https://www.googleapis.com/books/v1/volumes?q=";
+const bookTitles = document.querySelector('.review-list')
 
-fetch("https://www.googleapis.com/books/v1/volumes?q=time&printType=books")
+// fetch("https://www.googleapis.com/books/v1/volumes?q=time&printType=books")
 
-.then(function(res) {
-    return res.json();
+// .then(function(res) {
+//     return res.json();
     
-})
-.then(function(result) {
-    title = result.items;
-    // description = result.items[0].volumeInfo.description;
-    console.log(title);
-    // console.log(description);
+// })
+// .then(function(result) {
+//     title = result.items;
+//     // description = result.items[0].volumeInfo.description;
+//     console.log(title);
+//     // console.log(description);
  
-})
-.then(function(error) {
-    console.log(error);
-})
+// })
+// .then(function(error) {
+//     console.log(error);
+// })
 
-//this variable will read what the user searches in the search bar from the html
-//var titleInput = document.querySelector('.search-input');
+//pulling the class for the search box
+var titleInput = document.querySelector('.search-input');
+
+//pulling the class for the search button
+var searchBtn = document.querySelector('.search-btn')
+
+//function listening for the user to click the search button
 searchBtn.addEventListener("click", function(event) {
     event.preventDefault();
+
     fetch(url + titleInput.value + "printType=books")
     .then(function (response) {
         return response.json();
     })
     .then(data => {
-        
+        bookTitles.textContent = "";
+        for ( i = 0; i < data.results.length; i++) {
+            if (data.result[i].volumeInfo.title !== null) {
+                console.log(data.result[i].volumeInfo.title);
+            }
+        }
     })
 
 })
 
 
 
-function fetchdata() {
-    const url = "https://www.googleapis.com/books/v1/volumes?q=time&printType=books";
+// function fetchdata() {
+//     const url = "https://www.googleapis.com/books/v1/volumes?q=time&printType=books";
 
-}
+// }
 
 
 
