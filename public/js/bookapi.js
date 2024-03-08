@@ -54,7 +54,6 @@ searchBtn.addEventListener("click", function(event) {
 })
 
 
-
 //console.log(data.result.items[i].volumeInfo.title);
 
 // Handler for creating a review-page
