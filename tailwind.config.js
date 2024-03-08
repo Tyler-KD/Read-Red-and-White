@@ -3,7 +3,10 @@
 module.exports = {
   content: ["./views/**/*.{html,js,hbs,ts,jsx,tsx,handlebars,vue}", "./views/**/*.handlebars"],
   theme: {
-    extend: {},
+    extend: { 
+      backgroundImage: {
+      'hero': "url('../assets/books1.avif')",
+    },},
   },
   plugins: [],
 }
