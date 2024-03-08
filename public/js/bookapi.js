@@ -28,21 +28,31 @@ var searchBtn = document.querySelector('.search-btn')
 searchBtn.addEventListener("click", function(event) {
     event.preventDefault();
 
-    fetch(url + titleInput.value + "&printType=books&maxResults=10")
+    fetch(url + titleInput.value + "&printType=books&maxResults=3")
     .then(function (response) {
         return response.json();
     })
     .then(data => {
-        console.log(data);
+        //The below logs are the correct paths of the information that we need
+        // console.log(data.items[0].volumeInfo.title);
+        // console.log(data.items[0].volumeInfo.authors[0]);
+        // console.log(data.items[0].volumeInfo.categories[0]);
+        // console.log(data.items[0].volumeInfo.imageLinks.smallThumbnail);
+        // console.log(data.items[0].volumeInfo.description);
         //bookTitles.textContent = "";
-        for ( i = 0; i < data.length; i++) {
-            if (data.result.items[i].volumeInfo.title !== null) {
-                console.log(data.result.items[i].volumeInfo.title);
+        for ( i = 0; i < data.items.length; i++) {
+            if (data.items[i].volumeInfo !== null) {
+                console.log(data.items[i].volumeInfo.title);
+                console.log(data.items[i].volumeInfo.authors[0]);
+                console.log(data.items[i].volumeInfo.categories[0]);
+                console.log(data.items[i].volumeInfo.imageLinks.smallThumbnail);
+                console.log(data.items[i].volumeInfo.description);
             }
        }
     })
 })
 
+//console.log(data.result.items[i].volumeInfo.title);
 
 
 // function fetchdata() {
