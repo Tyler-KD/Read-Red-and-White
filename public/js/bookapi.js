@@ -82,7 +82,6 @@ searchBtn.addEventListener("click", function(event) {
 })
 
 
-
 //console.log(data.result.items[i].volumeInfo.title);
 
 
