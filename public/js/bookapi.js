@@ -59,9 +59,14 @@ searchBtn.addEventListener("click", function(event) {
                 
                 //creates button next to the title when titles have been fetched
                 var addBtn = document.createElement('button');
-                bookEl.appendChild(addBtn);
-                addBtn.textContent = "Add+";
                 addBtn.className = "add-button";
+                addBtn.textContent = " Add+ ";
+                bookEl.appendChild(addBtn);
+
+                //creates list element and appends it under the book-cards class
+                var author = document.createElement('li');
+                author.textContent = ("Author: " + data.items[i].volumeInfo.authors[0]);
+                bookEl.appendChild(author);
 
                 //creates img element, pulls the image url, and places it in the book-cards class
                 var bookImg = document.createElement('img');
@@ -69,17 +74,13 @@ searchBtn.addEventListener("click", function(event) {
                 bookImg.setAttribute('src', data.items[i].volumeInfo.imageLinks.thumbnail);
                 bookImg.className = 'card-img';
                 bookEl.appendChild(bookImg);
-
-
-
             }
             
        }
     })
-    .then(function(error) {
-    console.log(error);
+
 })
-})
+
 
 //console.log(data.result.items[i].volumeInfo.title);
 
