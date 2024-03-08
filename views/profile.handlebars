@@ -11,9 +11,12 @@
         <form class="form new-review-form">
             <div class="form-group">
                 {{!-- Book Review title form input --}}
-                <label for="review-title">Search for a book:</label>
+                <label for="review-title">Search For a Book:</label>
                 <input class="search-input" type="text" id="review-title" name="review-title" />
                 <button type="submit" class="search-btn">Submit</button>
+            </div>
+            <div>
+                <ul class="book-cards" data-id={{id}}><span>Title</span></ul>
             </div>
         </form>
     </div>
