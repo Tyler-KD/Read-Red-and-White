@@ -53,6 +53,30 @@ router.get('/profile', withAuth, async (req,res) => {
     }
 });
 
+// Route to render the review-page by user.
+// Use withAuth Middleware to prevent access to route.
+// If user is logged in, then route is accessed.
+// If user is logged out, then redirect back to login.
+router.get('/review-page', withAuth, async (req,res) => {
+    try {
+        // Find the logged in user based on the session ID
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['email', 'password'] },
+            include: [{ model: Review }],
+        });
+
+        const user = userData.get({ plain: true });
+
+        res.render('review-page', {
+            ...user,
+            logged_in: true
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 // Route to render the login page
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
