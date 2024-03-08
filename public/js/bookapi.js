@@ -23,6 +23,8 @@ var titleInput = document.querySelector('.search-input');
 
 //pulling the class for the search button
 var searchBtn = document.querySelector('.search-btn')
+var books = [];
+const review_id = event.target.getAttribute('data-id')
 
 //function listening for the user to click the search button
 searchBtn.addEventListener("click", function(event) {
@@ -34,6 +36,7 @@ searchBtn.addEventListener("click", function(event) {
     })
     .then(data => {
         console.log(data);
+        // get index data-id
         //bookTitles.textContent = "";
         for ( i = 0; i < data.length; i++) {
             if (data.result.items[i].volumeInfo.title !== null) {
@@ -44,6 +47,35 @@ searchBtn.addEventListener("click", function(event) {
 })
 
 
+// Handler for creating a review-page
+const newReviewFormHandler = async (event) => {
+    event.preventDefault();
+
+    const review_id = event.target.getAttribute("data-id") // index of search results
+    const book = books[review_id];
+    console.log(event.target)
+
+    if (review_input) {
+        const response = await fetch('/api/reviews', {
+            method: 'POST',
+            body: JSON.stringify({ review_id }), // build object to send to POST(create) route for the Review sequelize model
+            headers: {
+                'Content-Type': 'application.json'
+            },
+        });
+
+        if (response.status < 400) {
+            // get the new Review model id for the redirect
+            document.location.replace('/review_id');
+        } else {
+            alert('Failed to create review-page');
+            document.location.replace('/login');
+        }
+    }
+};
+
+document
+    .querySelector('')?.addEventListener('submit', newReviewFormHandler);
 
 // function fetchdata() {
 //     const url = "https://www.googleapis.com/books/v1/volumes?q=time&printType=books";
