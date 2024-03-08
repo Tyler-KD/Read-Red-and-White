@@ -45,28 +45,40 @@ searchBtn.addEventListener("click", function(event) {
         //bookTitles.textContent = "";
         for ( i = 0; i < data.items.length; i++) {
             if (data.items[i].volumeInfo !== null) {
-                console.log(data.items[i].volumeInfo.title);
-                console.log(data.items[i].volumeInfo.authors[0]);
-                console.log(data.items[i].volumeInfo.categories[0]);
-                console.log(data.items[i].volumeInfo.imageLinks.smallThumbnail);
-                console.log(data.items[i].volumeInfo.description);
+                // console.log(data.items[i].volumeInfo.title);
+                // console.log(data.items[i].volumeInfo.authors);
+                // console.log(data.items[i].volumeInfo.categories);
+                // //console.log(data.items[i].volumeInfo.imageLinks.thumbnail);
+                // console.log(data.items[i].volumeInfo.description);
+                console.log(data.items[i].volumeInfo);
 
                 //Creates p element for each title and puts it in the book-cards class
                 var bookEl = document.createElement('p');
                 bookEl.textContent = data.items[i].volumeInfo.title;
                 bookList.appendChild(bookEl);
+                
+                //creates button next to the title when titles have been fetched
+                var addBtn = document.createElement('button');
+                bookEl.appendChild(addBtn);
+                addBtn.textContent = "Add+";
+                addBtn.className = "add-button";
 
                 //creates img element, pulls the image url, and places it in the book-cards class
                 var bookImg = document.createElement('img');
                 bookEl.className = 'card';
-                bookImg.setAttribute('src', data.items[i].volumeInfo.imageLinks.smallThumbnail);
+                bookImg.setAttribute('src', data.items[i].volumeInfo.imageLinks.thumbnail);
                 bookImg.className = 'card-img';
                 bookEl.appendChild(bookImg);
 
 
+
             }
+            
        }
     })
+    .then(function(error) {
+    console.log(error);
+})
 })
 
 //console.log(data.result.items[i].volumeInfo.title);
