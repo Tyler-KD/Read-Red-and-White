@@ -1,8 +1,9 @@
 const sequelize = require('../config/connection');
-const { User, Review, Wine } = require('../models');
+const { User, Review, Comment, Wine } = require('../models');
 
 const userData = require('./userData.json');
 const reviewData = require('./reviewData.json');
+const commentData = require('./commentData.json');
 const wineData = require('./wineData.json');
 
 const seedDatabase = async () => {
@@ -22,13 +23,21 @@ const seedDatabase = async () => {
         returning: true,
     });
 
-    for (const wine of wineData) {
-        await Wine.create({
-            ...wine,
+    for (const comment of commentData) {
+        await Comment.create({
+            ...comment,
             user_id: users[Math.floor(Math.random() * users.length)].id,
             review_id: reviews[Math.floor(Math.random() * reviews.length)].id,
         });
     };
+
+    // for (const wine of wineData) {
+    //     await Wine.create({
+    //         ...wine,
+    //         user_id: users[Math.floor(Math.random() * users.length)].id,
+    //         review_id: reviews[Math.floor(Math.random() * reviews.length)].id,
+    //     });
+    // };
 
     process.exit(0);
 };
