@@ -36,15 +36,9 @@ searchBtn.addEventListener("click", function(event) {
         return response.json();
     })
     .then(data => {
-        //The below logs are the correct paths of the information that we need
-        // console.log(data.items[0].volumeInfo.title);
-        // console.log(data.items[0].volumeInfo.authors[0]);
-        // console.log(data.items[0].volumeInfo.categories[0]);
-        // console.log(data.items[0].volumeInfo.imageLinks.smallThumbnail);
-        // console.log(data.items[0].volumeInfo.description);
         //bookTitles.textContent = "";
         for ( i = 0; i < data.items.length; i++) {
-            if (data.items[i].volumeInfo !== null) {
+            if (data.items[i].volumeInfo.imageLinks !== undefined) {
                 // console.log(data.items[i].volumeInfo.title);
                 // console.log(data.items[i].volumeInfo.authors);
                 // console.log(data.items[i].volumeInfo.categories);
@@ -73,16 +67,12 @@ searchBtn.addEventListener("click", function(event) {
                 bookEl.className = 'card';
                 bookImg.setAttribute('src', data.items[i].volumeInfo.imageLinks.thumbnail);
                 bookImg.className = 'card-img';
-                bookEl.appendChild(bookImg);
-            }
-            
+                bookEl.appendChild(bookImg);       
+            }     
        }
     })
-
 })
 
-
-//console.log(data.result.items[i].volumeInfo.title);
 
 // Handler for creating a review-page
 const reviewPageHandler = async (event) => {
@@ -124,16 +114,6 @@ document
 
 // }
 
-
-
-// const API = 'AIzaSyBAVSXjnDVfRiLkrOIeNPqSADXVSBKJb9k'
-// const url = `https://www.googleapis.com/books/v1/volumes?q=time&printType=books&key=AIzaSyBAVSXjnDVfRiLkrOIeNPqSADXVSBKJb9k`;
-// const options = {
-//     method: 'GET'
-// }
-
-
-
 // function fetchdata() {
 //     fetch(url)
 
@@ -141,14 +121,3 @@ document
 // };
 
 // fetchdata();
-
-
-// // function getApi() {
-// //     const requestUrl = `GET https://www.googleapis.com/books/v1/volumes?q=time&printType=books&key=AIzaSyBAVSXjnDVfRiLkrOIeNPqSADXVSBKJb9k`;
-
-//     fetch(requestUrl)
-//      console.log(data);
-// }
-
-// getApi();
-
