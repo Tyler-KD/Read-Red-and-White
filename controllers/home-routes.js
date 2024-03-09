@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { User, Review, Wine } = require('../models');
+const { User, Review, Comment, Wine } = require('../models');
 
 const withAuth = require('../utils/auth');
 
@@ -53,11 +53,11 @@ router.get('/profile', withAuth, async (req,res) => {
     }
 });
 
-// Route to render the create-review by user.
+// Route to render the create-review page by user.
 // Use withAuth Middleware to prevent access to route.
 // If user is logged in, then route is accessed.
 // If user is logged out, then redirect back to login.
-router.get('/create-review/:id', withAuth, async (req,res) => {
+router.get('/create-review page/:id', withAuth, async (req,res) => {
     try {
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
@@ -67,12 +67,77 @@ router.get('/create-review/:id', withAuth, async (req,res) => {
 
         const user = userData.get({ plain: true });
 
-        res.render('create-review', {
+        res.render('create-review page', {
             ...user,
             logged_in: true
         });
     } catch (err) {
         console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+// Route to render individual reviews
+// GET one blog with serialized data
+router.get('/review/:id', async (req, res) => {
+    try {
+        // Search the db for a review with an id that matches params
+        const reviewData = await Review.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+                {
+                    model: Comment,
+                    include: [
+                        {
+                            model: User, attributes: ['username'],
+                        },
+                    ],
+                },
+            ],
+        });
+        const review = reviewData.get({ plain: true });
+        console.log(review);
+        // The 'review' template is rendered and review is passed into the template
+        res.render('review', {
+            ...review,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// Route to render user's reviews within profile
+// Get one review with serialized data
+router.get('/review/:id/edit', async (req, res) => {
+    try {
+        const reviewData = await Review.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+                {
+                    model: Comment,
+                    include: [
+                        {
+                            model: User, attributes: ['username'],
+                        },
+                    ],
+                },
+            ],
+        });
+        const review = reviewData.get({ plain: true });
+        console.log(review);
+        // The 'review' template is rendered and review is passed into the template.
+        res.render('editreview', {
+            ...review,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
         res.status(500).json(err);
     }
 });
