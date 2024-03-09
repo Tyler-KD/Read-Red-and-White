@@ -44,7 +44,7 @@ searchBtn.addEventListener("click", function(event) {
         // console.log(data.items[0].volumeInfo.description);
         //bookTitles.textContent = "";
         for ( i = 0; i < data.items.length; i++) {
-            if (data.items[i].volumeInfo.authors[0] !== null && data.items[i].volumeInfo.imageLinks.thumbnail !== null) {
+            if (data.items[i].volumeInfo.title !== null && data.items[i].volumeInfo.authors[0] !== null && data.items[i].volumeInfo.imageLinks.thumbnail !== null) {
                 // console.log(data.items[i].volumeInfo.title);
                 // console.log(data.items[i].volumeInfo.authors);
                 // console.log(data.items[i].volumeInfo.categories);
@@ -74,8 +74,10 @@ searchBtn.addEventListener("click", function(event) {
                 bookImg.setAttribute('src', data.items[i].volumeInfo.imageLinks.thumbnail);
                 bookImg.className = 'card-img';
                 bookEl.appendChild(bookImg);
+
+                return;
             } 
-            else if (data.items[i].volumeInfo.authors[0] == null && data.items[i].volumeInfo.imageLinks.thumbnail !== null) {
+            else if (data.items[i].volumeInfo.title !== null && data.items[i].volumeInfo.authors[0] == null && data.items[i].volumeInfo.imageLinks.thumbnail !== null) {
                  //Creates p element for each title and puts it in the book-cards class
                  var bookEl = document.createElement('p');
                  bookEl.textContent = data.items[i].volumeInfo.title;
@@ -98,8 +100,10 @@ searchBtn.addEventListener("click", function(event) {
                  bookImg.setAttribute('src', data.items[i].volumeInfo.imageLinks.thumbnail);
                  bookImg.className = 'card-img';
                  bookEl.appendChild(bookImg);
+
+                 return;
             }
-            else if (data.items[i].volumeInfo.authors[0] !== null && data.items[i].volumeInfo.imageLinks.thumbnail == null) {
+            else if (data.items[i].volumeInfo.title !== null && data.items[i].volumeInfo.authors[0] !== null && data.items[i].volumeInfo.imageLinks.thumbnail == null) {
                 //Creates p element for each title and puts it in the book-cards class
                 var bookEl = document.createElement('p');
                 bookEl.textContent = data.items[i].volumeInfo.title;
@@ -122,6 +126,8 @@ searchBtn.addEventListener("click", function(event) {
                 bookImg.setAttribute('src', './images/book-placeholder-small.png');
                 bookImg.className = 'card-img';
                 bookEl.appendChild(bookImg);
+
+                return;
             } 
             else {
                 bookList.textContent = 'No Results!'
