@@ -1,0 +1,32 @@
+<div >
+<h2>{{title}}</h2>
+<div>
+    <p>{{content}}</p>
+    <p>Created by {{user.username}} on {{format_date date_created}}</p>
+</div>
+{{#if logged_in}}
+<form data-="{{id}}" class="form new-comment-form">
+    <div>
+        <label for="textarea-comment" class="comment-label-text">Add a comment:</label>
+        <textarea 
+        class="form-control" 
+        id="textarea-comment" 
+        placeholder="Enter text here..." 
+        rows="4">
+        </textarea>
+    </div>
+    <div>
+        <button id="commentSubmit" type="submit" class="btn" value="submit">Submit</button>
+    </div>
+</form>
+{{/if}}
+<h2>Comments:</h2>
+{{#each comments}}
+<div class="comment">
+    <p>{{comment_input}}</p>
+    <p>By {{user.username}} on {{format_date date_created}}</p>
+</div>
+{{/each}}
+</div>
+
+<script src="/js/new-comment.js"></script>
