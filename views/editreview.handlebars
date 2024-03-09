@@ -1,0 +1,22 @@
+<div>
+    <div>
+        <h3>Edit Review:</h3>
+        <form class="form new-review-form">
+            <div class="form-group">
+                <p class="review-title">Title:{{title}}</p>
+            </div>
+            <div class="form-group">
+                <label for="review-content">Content:</label>
+                <textarea class="form-content" name="review-content" id="review-content">{{content}}</textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary update-form">Update</button>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-sm btn-danger review-form" data-id="{{review.id}}">DELETE</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/js/edit-review.js"></script>

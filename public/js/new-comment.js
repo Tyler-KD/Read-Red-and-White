@@ -29,4 +29,4 @@ const newCommentFormHandler = async (event) => {
 
 // Event listener for creating a comment for a review after clicking 'Submit
 document
-    .querySelector('new-comment-form')?.addEventListener('submit', newCommentFormHandler);
+    .querySelector('.new-comment-form')?.addEventListener('submit', newCommentFormHandler);

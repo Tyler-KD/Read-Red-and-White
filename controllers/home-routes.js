@@ -110,6 +110,38 @@ router.get('/review/:id', async (req, res) => {
     }
 });
 
+// Route to render user's reviews within profile
+// Get one review with serialized data
+router.get('/review/:id/edit', async (req, res) => {
+    try {
+        const reviewData = await Review.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+                {
+                    model: Comment,
+                    include: [
+                        {
+                            model: User, attributes: ['username'],
+                        },
+                    ],
+                },
+            ],
+        });
+        const review = reviewData.get({ plain: true });
+        console.log(review);
+        // The 'review' template is rendered and review is passed into the template.
+        res.render('editreview', {
+            ...review,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // Route to render the login page
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
