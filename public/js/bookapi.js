@@ -85,17 +85,22 @@ searchBtn.addEventListener("click", function(event) {
 //console.log(data.result.items[i].volumeInfo.title);
 
 // Handler for creating a review-page
-const newReviewFormHandler = async (event) => {
+const reviewPageHandler = async (event) => {
     event.preventDefault();
+    // console.log(event.target);
+    // const review_id = event.target.getAttribute("data-id") // index of search results
+    // const book = books[review_id];
+    const title = bookList.children[0];
+    const author = bookList.children[0].children[1];
+    const image = bookList.children[0].children[2];
 
-    const review_id = event.target.getAttribute("data-id") // index of search results
-    const book = books[review_id];
+
     console.log(event.target)
 
     if (review_input) {
         const response = await fetch('/api/reviews', {
             method: 'POST',
-            body: JSON.stringify({ review_id }), // build object to send to POST(create) route for the Review sequelize model
+            body: JSON.stringify({ title, author, image, review_id }), // build object to send to POST(create) route for the Review sequelize model
             headers: {
                 'Content-Type': 'application.json'
             },
@@ -103,7 +108,7 @@ const newReviewFormHandler = async (event) => {
 
         if (response.status < 400) {
             // get the new Review model id for the redirect
-            document.location.replace('/review_id');
+            document.location.replace('/review-page');
         } else {
             alert('Failed to create review-page');
             document.location.replace('/login');
@@ -112,7 +117,7 @@ const newReviewFormHandler = async (event) => {
 };
 
 document
-    .querySelector('')?.addEventListener('submit', newReviewFormHandler);
+    .querySelector('book-cards')?.addEventListener('submit', reviewPageHandler);
 
 // function fetchdata() {
 //     const url = "https://www.googleapis.com/books/v1/volumes?q=time&printType=books";
