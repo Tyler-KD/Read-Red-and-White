@@ -44,7 +44,7 @@ searchBtn.addEventListener("click", function(event) {
         // console.log(data.items[0].volumeInfo.description);
         //bookTitles.textContent = "";
         for ( i = 0; i < data.items.length; i++) {
-            if (data.items[i].volumeInfo.title !== null || data.items[i].volumeInfo.authors[0] !== null || data.items[i].volumeInfo.imageLinks.thumbnail !== null) {
+            if (data.items[i].volumeInfo.authors[0] !== null && data.items[i].volumeInfo.imageLinks.thumbnail !== null) {
                 // console.log(data.items[i].volumeInfo.title);
                 // console.log(data.items[i].volumeInfo.authors);
                 // console.log(data.items[i].volumeInfo.categories);
@@ -75,7 +75,58 @@ searchBtn.addEventListener("click", function(event) {
                 bookImg.className = 'card-img';
                 bookEl.appendChild(bookImg);
             } 
-            
+            else if (data.items[i].volumeInfo.authors[0] == null && data.items[i].volumeInfo.imageLinks.thumbnail !== null) {
+                 //Creates p element for each title and puts it in the book-cards class
+                 var bookEl = document.createElement('p');
+                 bookEl.textContent = data.items[i].volumeInfo.title;
+                 bookList.appendChild(bookEl);
+                 
+                 //creates button next to the title when titles have been fetched
+                 var addBtn = document.createElement('button');
+                 addBtn.className = "add-button";
+                 addBtn.textContent = " Add+ ";
+                 bookEl.appendChild(addBtn);
+ 
+                 //creates list element and appends it under the book-cards class
+                 var author = document.createElement('li');
+                 author.textContent = ("Author Not Found");
+                 bookEl.appendChild(author);
+ 
+                 //creates img element, pulls the image url, and places it in the book-cards class
+                 var bookImg = document.createElement('img');
+                 bookEl.className = 'card';
+                 bookImg.setAttribute('src', data.items[i].volumeInfo.imageLinks.thumbnail);
+                 bookImg.className = 'card-img';
+                 bookEl.appendChild(bookImg);
+            }
+            else if (data.items[i].volumeInfo.authors[0] !== null && data.items[i].volumeInfo.imageLinks.thumbnail == null) {
+                //Creates p element for each title and puts it in the book-cards class
+                var bookEl = document.createElement('p');
+                bookEl.textContent = data.items[i].volumeInfo.title;
+                bookList.appendChild(bookEl);
+                
+                //creates button next to the title when titles have been fetched
+                var addBtn = document.createElement('button');
+                addBtn.className = "add-button";
+                addBtn.textContent = " Add+ ";
+                bookEl.appendChild(addBtn);
+
+                //creates list element and appends it under the book-cards class
+                var author = document.createElement('li');
+                author.textContent = ("Author: " + data.items[i].volumeInfo.authors[0]);
+                bookEl.appendChild(author);
+
+                //creates img element, pulls the image url, and places it in the book-cards class
+                var bookImg = document.createElement('img');
+                bookEl.className = 'card';
+                bookImg.setAttribute('src', './images/book-placeholder-small.png');
+                bookImg.className = 'card-img';
+                bookEl.appendChild(bookImg);
+            } 
+            else {
+                bookList.textContent = 'No Results!'
+            }
+            return;
        }
     })
 
