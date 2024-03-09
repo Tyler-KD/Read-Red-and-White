@@ -108,9 +108,9 @@ const reviewPageHandler = async (event) => {
 
         if (response.status < 400) {
             // get the new Review model id for the redirect
-            document.location.replace('/review-page');
+            document.location.replace('/create-review');
         } else {
-            alert('Failed to create review-page');
+            alert('Failed to load create-review page');
             document.location.replace('/login');
         }
     }
