@@ -44,7 +44,7 @@ searchBtn.addEventListener("click", function(event) {
         // console.log(data.items[0].volumeInfo.description);
         //bookTitles.textContent = "";
         for ( i = 0; i < data.items.length; i++) {
-            if (data.items[i].volumeInfo !== null) {
+            if (data.items[i].volumeInfo.title !== null || data.items[i].volumeInfo.authors[0] !== null || data.items[i].volumeInfo.imageLinks.thumbnail !== null) {
                 // console.log(data.items[i].volumeInfo.title);
                 // console.log(data.items[i].volumeInfo.authors);
                 // console.log(data.items[i].volumeInfo.categories);
@@ -74,7 +74,7 @@ searchBtn.addEventListener("click", function(event) {
                 bookImg.setAttribute('src', data.items[i].volumeInfo.imageLinks.thumbnail);
                 bookImg.className = 'card-img';
                 bookEl.appendChild(bookImg);
-            }
+            } 
             
        }
     })
