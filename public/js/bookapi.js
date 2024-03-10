@@ -7,6 +7,7 @@ var titleInput = document.querySelector('.search-input');
 //pulling the class for the search button
 var searchBtn = document.querySelector('.search-btn')
 
+//pulling the class for 
 const bookList = document.querySelector('.book-cards')
 
 //function listening for the user to click the search button
