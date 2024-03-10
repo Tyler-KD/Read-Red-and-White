@@ -1,18 +1,27 @@
 [
     {
         "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "image": "http://books.google.com/books/content?id=iXn5U2IzVH0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
         "content": "An amazing read! Could not put it down, finished this within two days. P.S. Daisy sucks!"
+        
     },
     {
         "title": "Frankenstein",
+        "author": "Mary Shelley",
+        "image": "http://books.google.com/books/content?id=9xHCAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
         "content": "Mary Shelley has done it once again! I will be telling all of my friends to read this book. An exhilarating journey from beginning to end. Can't wait to see what Mary Shelley does next."
     },
     {
         "title": "Brave New World",
+        "author": "Aldous Huxley",
+        "image": "http://books.google.com/books/content?id=TIJ5EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
         "content": "Not gonna lie, I wasn't sure about this book at first, but I'm so glad that I finished this book. Highly recommend. Also I wouldn't mind trying Soma lol. "
     },
     {
-        "title": "Websters's New Illustrated Dictonary",
+        "title": "Websters's New Illustrated Dictionary",
+        "author": "Noah Webster",
+        "image": "http://books.google.com/books/content?id=6houwYar8KwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
         "content": "A truly boring read. This book was much too wordy and had virtually no plot."
     }
 ]

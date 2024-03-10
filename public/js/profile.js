@@ -1,14 +1,18 @@
+
 // Handler for creating a user's review
 const newFormHandler = async (event) => {
     event.preventDefault();
     // Collect values from the Create a New Review form
+    const title = localStorage.getItem('title').valueOf
+    const author = localStorage.getItem('author').valueOf
+    const image = localStorage.getItem('image').valueOf
     const content = document.querySelector('#review-content').value.trim();
 
-    if (content) {
+    if (title, author, image, content) {
         // Send a POST request to the API endpoint
         const response = await fetch('/api/reviews', {
             method: 'POST',
-            body: JSON.stringify({ content }),
+            body: JSON.stringify({ title, author, image, content }),
             headers: {
                 'Content-Type': 'application/json',
             },
