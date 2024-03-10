@@ -9,23 +9,26 @@
 </head>
 
 
-<body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ...">
+<body class="bg-gradient-to-b from-red-800 via-purple-500 to-red-800">
     <div>
-        <header class="bg-purple-400 display-flex justify-space-between align-center p-6 py-6">
-            <h1 class="bg-blue-600 text-8xl text-center font-semibold">Read Red and White</h1>
+        <header class="bg-cover bg-center bg-fixed py-64" style="background-image: url('https://mshanken.imgix.net/wso/bolt/2020-04/stayinghome_books040620a_1600.jpg?auto=compress,format,&sharp=5&vib=20&q=70&w=1255');">
+            <h1 class="text-8xl text-center font-semibold">Read <span class="text-red-800">Red</span> and <span class="text-white">White</span></h1>
        
+
+                <nav class= "text-5xl text-center py-6 my-4">
+                    {{#if logged_in}}
+                    <a href="/" class="bg-red-700 hover:bg-black bg-opacity-40 hover:opacity-100 text-white font-bold py-2 px-4 rounded-full">Home</a> |
+                    <a href="/profile" class="bg-black hover:bg-black bg-opacity-40 hover:opacity-100 text-white font-bold py-2 px-4 rounded-full">Profile</a> |
+                    <a class="bg-red-700 hover:bg-black bg-opacity-40 hover:opacity-100 text-white font-bold py-2 px-4 rounded-full" id="logout">Logout</a>
+                    {{else}}
+                    <a href="/" class=" bg-red-700 hover:bg-black bg-opacity-40 hover:opacity-100 text-white font-bold py-2 px-4 rounded-full">Home</a> |
+                    <a href="/profile" class="bg-white hover:bg-white bg-opacity-40 hover:opacity-100 text-black font-bold py-2 px-4 rounded-full">Profile</a> |
+                    <a href="/login" class=" bg-red-700 hover:bg-black bg-opacity-40 hover:opacity-100 text-white font-bold py-2 px-4 rounded-full">Login</a>
+                    {{/if}}
+                </nav>
+
         </header>
-        <nav class="bg-green-500 text-5xl text-center py-6 my-4">
-                {{#if logged_in}}
-                <a href="/" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Home</a> |
-                <a href="/profile" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Profile</a> |
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" id="logout">Logout</button>
-                {{else}}
-                <a href="/" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Home</a> |
-                <a href="/profile" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Profile</a> |
-                <a href="/login" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Login</a>
-                {{/if}}
-        </nav>
+   
         <div>
             <div>
              {{{ body }}}
