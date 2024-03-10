@@ -57,7 +57,7 @@ router.get('/profile', withAuth, async (req,res) => {
 // Use withAuth Middleware to prevent access to route.
 // If user is logged in, then route is accessed.
 // If user is logged out, then redirect back to login.
-router.get('/create-review page/:id', withAuth, async (req,res) => {
+router.get('/create-review', withAuth, async (req,res) => {
     try {
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
@@ -67,7 +67,7 @@ router.get('/create-review page/:id', withAuth, async (req,res) => {
 
         const user = userData.get({ plain: true });
 
-        res.render('create-review page', {
+        res.render('create-review', {
             ...user,
             logged_in: true
         });
