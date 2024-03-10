@@ -30,12 +30,12 @@ const bookList = document.querySelector('.book-cards')
 searchBtn.addEventListener("click", function (event) {
     event.preventDefault();
 
-    fetch(url + titleInput.value + "&printType=books&maxResults=3")
+    fetch(url + titleInput.value + "&printType=books&maxResults=6")
         .then(function (response) {
             return response.json();
         })
         .then(data => {
-            //bookTitles.textContent = "";
+            bookList.textContent = "";
             for (i = 0; i < data.items.length; i++) {
                 if (data.items[i].volumeInfo.imageLinks !== undefined) {
                     // console.log(data.items[i].volumeInfo.title);
