@@ -11,7 +11,7 @@ const updateFormHandler = async (event) => {
             method: 'PUT',
             body: JSON.stringify({ content }),
             headers: {
-                'Content-Tyype': 'application/json',
+                'Content-Type': 'application/json',
             },
         });
         // If response is successful, redirect the browser back to the profile page after clicking 'Update'
