@@ -3,9 +3,9 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
     // Collect values from the Create a New Review form
-    const title = localStorage.getItem('title').valueOf
-    const author = localStorage.getItem('author').valueOf
-    const image = localStorage.getItem('image').valueOf
+    const title = localStorage.getItem('title')
+    const author = localStorage.getItem('author');
+    const image = localStorage.getItem('image');
     const content = document.querySelector('#review-content').value.trim();
 
     if (title, author, image, content) {
