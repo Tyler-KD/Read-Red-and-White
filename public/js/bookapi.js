@@ -1,23 +1,6 @@
 const url = "https://www.googleapis.com/books/v1/volumes?q=";
 const bookTitles = document.querySelector('.review-list')
 
-// fetch("https://www.googleapis.com/books/v1/volumes?q=time&printType=books")
-
-// .then(function(res) {
-//     return res.json();
-
-// })
-// .then(function(result) {
-//     title = result.items;
-//     // description = result.items[0].volumeInfo.description;
-//     console.log(title);
-//     // console.log(description);
-
-// })
-// .then(function(error) {
-//     console.log(error);
-// })
-
 //pulling the class for the search box
 var titleInput = document.querySelector('.search-input');
 
@@ -38,11 +21,6 @@ searchBtn.addEventListener("click", function (event) {
             bookList.textContent = "";
             for (i = 0; i < data.items.length; i++) {
                 if (data.items[i].volumeInfo.imageLinks !== undefined) {
-                    // console.log(data.items[i].volumeInfo.title);
-                    // console.log(data.items[i].volumeInfo.authors);
-                    // console.log(data.items[i].volumeInfo.categories);
-                    // //console.log(data.items[i].volumeInfo.imageLinks.thumbnail);
-                    // console.log(data.items[i].volumeInfo.description);
                     console.log(data.items[i].volumeInfo);
 
                     //Creates p element for each title and puts it in the book-cards class
@@ -123,26 +101,3 @@ const reviewPageHandler = async (event) => {
 
 document
     .querySelector('.book-cards')?.addEventListener('click', reviewPageHandler);
-
-// document.getElementsByClassName('book-cards').addEventListener('click', function (event) {
-//     if (event.target.classList.contains('add-button')) {
-//         console.log('add-button clicked!')
-//     }
-// });
-
-// $(document).on('click', '.add-button', function () {
-//     console.log('Add button clicked!');
-// });
-
-// function fetchdata() {
-//     const url = "https://www.googleapis.com/books/v1/volumes?q=time&printType=books";
-
-// }
-
-// function fetchdata() {
-//     fetch(url)
-
-//     console.log(data)
-// };
-
-// fetchdata();
