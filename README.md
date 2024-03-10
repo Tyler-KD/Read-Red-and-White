@@ -9,18 +9,39 @@ Table of Contents
   
   * [Description](#description)
   * [How to use](#usage)
+  * [Features](#features)
   * [License](#licenseSection)
   * [Github](#gitHub)
   * [Youtube Demo](#youtube)
   * [Contact](#Contact-Us!)
 
 ### Description <a name="description"></a>  
-   This project has been created to read and write reviews, ...
+  Welcome to Read Red & White, a book and reviewer App! This application not only allows you to write and share your reviews about the books you've read but also lets you pair them with the perfect wine selection. Whether you're delving into the depths of a gripping novel or sipping on a fine glass of wine, this app provides you with a platform to express your thoughts and enhance your reading experience with the perfect beverage.
   
 ### How to use <a name="usage"></a> 
-   To deploy this, you will need to have...
+* Sign Up or Log In: If you're a new user, sign up for an account. If you're a returning user, simply log in to access your account.
 
-![Alt Text](./assets/insertIMGhere.img)
+* Search for Books: Use the search functionality to find the book you want to review. You can search by title, author, genre, or any relevant keywords.
+
+* Write Your Review: Once you've found the book, click on it to access its details and then write your review. You can rate the book, write a detailed review, and share your thoughts with the community.
+
+* Explore: Explore other reviews, discover new books, and engage with fellow readers. You can comment on reviews, follow other users, and build your reading network.
+
+
+
+### Features <a name="features"></a>
+
+* Book Search: Search for books by title, author, genre, or any keywords to find the ones you want to review.
+* Review Writing: Easily write and submit reviews for the books you've read.
+* User Profiles: Create and personalize your user profile to showcase your reading interests and preferences.
+* Community Interaction: Connect with other users, read their reviews, and engage in discussions about various books.
+* Bookmarking: Save your favorite books or ones you want to read for later reference.
+* Wine Pairing: Select and pair your book with a suitable wine to complement your reading experience.
+* Rating System: Rate books based on your experience and share your ratings with other users.
+
+
+
+![Alt Text](./public/images/readmeimage2.png)
 
 
   
@@ -38,5 +59,11 @@ https://youtube.com
 
 # Contact Us! <a name="Contact-Us!"></a> 
 
-Yash Baviskar:                      Tyler Knapp:                        Julian Palomo:
-yashrajbaviskar@gmail.com           tyler.kd.knapp@gmail.com            jpalomo92@gmail.com
+Yash Baviskar: yashrajbaviskar@gmail.com                  
+
+Tyler Knapp: tyler.kd.knapp@gmail.com                     
+
+Julian Palomo: jpalomo92@gmail.com
+                      
+
+## Happy reviewing!

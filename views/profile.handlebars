@@ -1,41 +1,46 @@
 <div>
     <div>
-        <h2>Welcome, {{username}}!</h2>
+        <h2 class="text-4xl text-black py-10">Welcome, {{username}}!</h2>
     </div>
 </div>
 
 <div>
-    <div>
-        <h3>Create a New Book Review</h3>
+    <div class="">
+        <h3 class="text-center text-2xl">Create a New Book Review</h3>
         {{!-- Form for creating / posting a new book review --}}
-        <form class="form new-review-form">
-            <div class="form-group">
+        <form class="form new-review-form flex justify-center py-10">
+            <div class="form-group text-4xl">
                 {{!-- Book Review title form input --}}
                 <label for="review-title">Search For a Book:</label>
                 <input class="search-input" type="text" id="review-title" name="review-title" />
-                <button type="submit" class="search-btn">Submit</button>
+                <button type="submit" class="search-btn rounded-lg p-2 bg-blue-400 hover:bg-blue-600">Submit</button>
             </div>
         </form>
-        <div>
-            <ul class="book-cards" data-id={{id}}><span>Title</span></ul>
+        <div class="flex justify-center text-3xl">
+            <ul class="book-cards grid grid-cols-3 gap-14 justify-center" data-id={{id}}></ul>
         </div>
         
     </div>
     {{!-- Render Current Reviews for user --}}
     {{!-- handlebars for loop --}}
-    {{#if reviews.length}}
-    <div class="review-list">
-        {{!-- Built-in each helper iterates over reviews. --}}
-        {{!-- Inside the block, you can use this to reference the element being iterated over. --}}
+    <div class="text-2xl mt-8">Titles Reviewed:</div>
+    <div class="flex-col mt-6">
+        
+        {{#if reviews.length}}
+            <div class="review-list">
+            {{!-- Built-in each helper iterates over reviews. --}}
+            {{!-- Inside the block, you can use this to reference the element being iterated over. --}}
         {{#each reviews as |review|}}
-        <div>
             <div>
-                <h4><a href="/review/{{review.id}}/edit">{{review.title}}</a></h4>
+                <div>
+                    <h4><a href="/review/{{review.id}}/edit">{{review.title}}</a></h4>
+                </div>
             </div>
-        </div>
         {{/each}}
+        </div>
+        {{/if}}
     </div>
-    {{/if}}
+  
 </div>
 
 <script src="/js/bookapi.js"></script>

@@ -1,9 +1,9 @@
-<div class="grid grid-cols-4 gap-14">{{#each reviews as |review| }}
+<div class="grid grid-cols-4 gap-12">{{#each reviews as |review| }}
 
 
-    <div class="my-10">
-        <div class="rounded-lg border-4">
-            <div class="bg-blue-400 hover:bg-blue-600">
+    <div class="my-16 px-6">
+        <div class="rounded-lg border-4 hover:scale-105">
+            <div class="bg-blue-200 bg-opacity-45 hover:bg-blue-500 shadow hover:shadow-2xl">
                 <h2 class="text-3xl py-4 font-semibold text-center">
                     <a href="/review/{{review.id}}">{{review.title}}</a>
                 </h2>
@@ -22,7 +22,7 @@
 
 
                 
-                     <p class="text-xl py-1 px-4 bg-red-300">
+                     <p class="text-xl py-1 px-4 bg-gradient-to-b from-slate-200 via-slate-300 to-slate-400">
                         {{review.content}}
                     </p>
 
