@@ -1,23 +1,31 @@
 <div>
     <div>
-        <h2 class="text-4xl text-black py-10">Welcome, {{username}}!</h2>
+        <h2 class="text-4xl text-black py-10 px-2 font-semibold">Welcome, {{username}}!</h2>
     </div>
 </div>
 
 <div>
     <div>
-        <h3>Create a New Book Review</h3>
+        <h3 class="text-center text-6xl text-black">Create a New Book Review</h3>
         {{!-- <p>{{review.title}}</p> --}}
         {{!-- Form for creating / posting a new book review --}}
+
+        <form class="form new-review-form justify-center grid grid-row-3 py-5 gap-5">
+            <div class="form-group py-7">
+                {{!-- Book Review title form input --}}
+                <label for="review-title" class="text-center text-5xl">Title:</label>
+                <input class="Title-input form-input py-2 px-12 border-2 rounded-lg border-black" type="text" id="review-title" name="review-title" />
+            </div>
+
         <form class="form new-review-form">
             <div class="form-group">
                 {{!-- Review content form input --}}
-                <label for="review-content">Content:</label>
-                <textarea class="form-input" id="review-content" name="review-content"></textarea>
+                <label for="review-content" class="text-center text-5xl">Content:</label>
+                <textarea class="form-input py-15 px-12 border-2 rounded-lg border-black" id="review-content" name="review-content"></textarea>
             </div>
             <div class="form-group">
                 {{!-- Create Review button --}}
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary text-4xl rounded-lg border-2 border-black hover:scale-110 py-4 px-16 my-2 bg-blue-400 hover:bg-blue-600">Create</button>
             </div>
         </form>
     </div>
