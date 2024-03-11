@@ -40,7 +40,7 @@ Comment.belongsTo(User, {
 });
 
 // Review has one Wine
-Review.hasOne(Wine, {
+Review.hasMany(Wine, {
     foreignKey: 'review_id',
     onDelete: 'CASCADE'
 });
@@ -51,7 +51,7 @@ Wine.belongsTo(Review, {
 });
 
 // User has one Wine
-User.hasOne(Wine, {
+User.hasMany(Wine, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });

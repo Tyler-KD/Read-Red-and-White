@@ -96,6 +96,14 @@ router.get('/review/:id', async (req, res) => {
                         },
                     ],
                 },
+                {
+                    model: Wine,
+                    include: [
+                        {
+                            model: User, attributes: ['username'],
+                        },
+                    ],
+                },
             ],
         });
         const review = reviewData.get({ plain: true });
@@ -119,14 +127,6 @@ router.get('/review/:id/edit', async (req, res) => {
                 {
                     model: User,
                     attributes: ['username'],
-                },
-                {
-                    model: Comment,
-                    include: [
-                        {
-                            model: User, attributes: ['username'],
-                        },
-                    ],
                 },
             ],
         });

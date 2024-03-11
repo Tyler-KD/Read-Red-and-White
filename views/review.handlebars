@@ -4,11 +4,12 @@
     <p>
         <img src="{{image}}" alt="image-description">
     </p>
-    
+
     <div class="card">
         <p>{{content}}</p>
         <p>Created by {{user.username}} on {{format_date date_created}}</p>
     </div>
+    <br>
     {{#if logged_in}}
     <form data-id={{id}} class="form new-comment-form">
         <div>
@@ -16,12 +17,15 @@
             <textarea class="form-control" id="textarea-comment" placeholder="Enter text here..." rows="4">
         </textarea>
         </div>
+        <br>
         <div>
             <button id="commentSubmit" type="submit" class="btn" value="submit">Submit</button>
         </div>
     </form>
     {{/if}}
+    <br>
     <h2>Comments:</h2>
+    <br>
     {{#each comments}}
     <div class='card' class="comment ">
         <p>{{comment_input}}</p>
@@ -29,5 +33,61 @@
     </div>
     {{/each}}
 </div>
+<br>
+<div>
+    <h2>Pair a wine with this book:</h2>
+    <br>
+    {{#if logged_in}}
+    <form data-id={{id}} class="form new-Wine-form">
+        <div>
+            <label for="Wine-Category" class="Wine-label-text">Add a Wine Category:</label>
+            <input class="form-input" type="text" id="Wine-Category" name="Wine-Category">
+        </div>
+        <br>
+        <div>
+            <label for="Wine-Brand" class="Wine-label-text">Add a Wine Brand:</label>
+            <input class="form-input" type="text" id="Wine-Brand" name="Wine-Brand">
+        </div>
+        <br>
+        <div>
+            <label for="Wine-Type" class="Wine-label-text">Add a Wine Type:</label>
+            <input class="form-input" type="text" id="Wine-Type" name="Wine-Type">
+        </div>
+        <br>
+        <div>
+            <label for="Wine-Flavor" class="Wine-label-text">Add a Wine Flavor:</label>
+            <input class="form-input" type="text" id="Wine-Flavor" name="Wine-Flavor">
+        </div>
+        <br>
+        <div>
+            <button id="WineSubmit" type="submit" class="btn" value="submit">Submit</button>
+        </div>
+    </form>
+    <br>
+    {{/if}}
+    <h2>Suggested wines:</h2>
+    <br>
+    {{#each wines}}
+    <div class='card' class="wine ">
+        <p>{{category}}</p>
+        <p>{{brand}}</p>
+        <p>{{type}}</p>
+        <p>{{flavor}}</p>
+        <p>By {{user.username}}</p>
+    </div>
+    {{/each}}
+</div>
+{{!-- <div>
+    {{#each wines as |wine|}}
 
+    <p>{{wine.category}}</p>
+    <p>{{wine.brand}}</p>
+    <p>{{wine.type}}</p>
+    <p>{{wine.flavor}}</p>
+    <p>By {{user.username}}</p>
+
+    {{/each}}
+</div> --}}
+
+<script src="/js/new-wine.js"></script>
 <script src="/js/new-comment.js"></script>

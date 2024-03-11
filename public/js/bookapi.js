@@ -56,16 +56,8 @@ searchBtn.addEventListener("click", function (event) {
 // Handler for creating a review-page
 const reviewPageHandler = async (event) => {
     event.preventDefault();
-    // console.log(event.target);
-    // const review_id = event.target.getAttribute("data-id") // index of search results
-    // const book = books[review_id];
+
     if (event.target.matches("button")) {
-        
-
-
-        // const title = bookList.children[0];
-        // const author = bookList.children[0].children[1];
-        // const image = bookList.children[0].children[2];
 
         const parentText = event.target.parentElement.textContent.split(' Add+ ')
         const title = parentText[0]
@@ -81,21 +73,6 @@ const reviewPageHandler = async (event) => {
             localStorage.setItem('author', author)
             localStorage.setItem('image', image)
             document.location.replace('/create-review')
-            // const response = await fetch('/api/reviews', {
-            //     method: 'POST',
-            //     body: JSON.stringify({ title, author, image }), // build object to send to POST(create) route for the Review sequelize model
-            //     headers: {
-            //         'Content-Type': 'application.json'
-            //     },
-            // });
-
-            // if (response.status < 400) {
-            //     // get the new Review model id for the redirect
-            //     document.location.replace('/create-review');
-            // } else {
-            //     alert('Failed to load create-review page');
-            //     document.location.replace('/login');
-            // }
         }
     }
 };
