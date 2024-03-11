@@ -31,13 +31,14 @@ searchBtn.addEventListener("click", function (event) {
 
                     //creates button next to the title when titles have been fetched
                     var addBtn = document.createElement('button');
-                    addBtn.className = "add-button";
-                    addBtn.textContent = " Add+ ";
-                    
+                    addBtn.className = "add-button mx-4 px-2 font-semibold rounded-lg border-2 border-black hover:scale-110 p-2 my-2 bg-blue-400 hover:bg-blue-600";
+                    addBtn.textContent = " Add ";
+                              
                     bookEl.appendChild(addBtn);
 
                     //creates list element and appends it under the book-cards class
                     var author = document.createElement('li');
+                    author.className = "text-xl"
                     author.textContent = ("Author: " + data.items[i].volumeInfo.authors[0]);
                     bookEl.appendChild(author);
 
@@ -45,8 +46,11 @@ searchBtn.addEventListener("click", function (event) {
                     var bookImg = document.createElement('img');
                     bookEl.className = 'card';
                     bookImg.setAttribute('src', data.items[i].volumeInfo.imageLinks.thumbnail);
-                    bookImg.className = 'card-img';
+                    bookImg.className = 'card-img py-6 flex justify-center';
                     bookEl.appendChild(bookImg);
+
+                            
+          
                 }
             }
         })
@@ -59,7 +63,7 @@ const reviewPageHandler = async (event) => {
 
     if (event.target.matches("button")) {
 
-        const parentText = event.target.parentElement.textContent.split(' Add+ ')
+        const parentText = event.target.parentElement.textContent.split(' Add ')
         const title = parentText[0]
         const author = parentText[1].replace('Author:', '')
         const image = event.target.nextElementSibling.nextElementSibling.src
