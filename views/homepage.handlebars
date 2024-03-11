@@ -1,4 +1,4 @@
-<div class="grid grid-cols-4 gap-12">{{#each reviews as |review| }}
+<div class="grid grid-cols-4 gap-12">{{#each reviews as |review|}}
 
 
     <div class="my-16 px-6">
@@ -7,32 +7,44 @@
                 <h2 class="text-3xl py-4 font-semibold text-center">
                     <a href="/review/{{review.id}}">{{review.title}}</a>
                 </h2>
-                   <div class="flex justify-center"> 
-                        <img src="{{review.image}}" class="object-center object-cover h-72"> 
-                    </div>
+                <div class="flex justify-center">
+                    <img src="{{review.image}}" class="object-center object-cover h-72">
+                </div>
                 <p class="text-center py-4 pb-8">Author: {{review.author}}</p>
 
-                 
-                   
-                
-                
-                   
-                
-                <p class="text-2xl py-5 text-center">Created by {{review.user.username}} on {{format_date review.date_created}}</p>
 
 
-                
-                     <p class="text-xl py-1 px-4 bg-gradient-to-b from-slate-200 via-slate-300 to-slate-400">
-                        {{review.content}}
-                    </p>
 
-                
+
+
+
+                <p class="text-2xl py-5 text-center">Created by {{review.user.username}} on {{format_date
+                    review.date_created}}</p>
+
+
+
+                <p class="text-xl py-1 px-4 bg-gradient-to-b from-slate-200 via-slate-300 to-slate-400">
+                    {{review.content}}
+                </p>
+
+
+
             </div>
-      
+
 
         </div>
 
     </div>
 
 
-{{/each}}</div>
+    {{/each}}
+</div>
+<div> {{#each wines as |wine|}}
+                    <h2 class="text-3xl py-4 font-semibold text-center">
+                    <a href="/wine/{{wine.id}}">{{wine.category}}</a>
+                </h2>
+    <p>
+        {{wine.brand}}
+    </p>
+    {{/each}}
+</div>

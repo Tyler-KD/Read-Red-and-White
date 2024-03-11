@@ -23,6 +23,14 @@ const seedDatabase = async () => {
         returning: true,
     });
 
+    for (const wine of wineData) {
+        await Wine.create({
+            ...wine,
+            user_id: users[Math.floor(Math.random() * users.length)].id,
+            review_id: reviews[Math.floor(Math.random() * reviews.length)].id,
+        });
+    };
+
     for (const comment of commentData) {
         await Comment.create({
             ...comment,
@@ -34,10 +42,20 @@ const seedDatabase = async () => {
     // for (const wine of wineData) {
     //     await Wine.create({
     //         ...wine,
-    //         user_id: users[Math.floor(Math.random() * users.length)].id,
+    //         // user_id: users[Math.floor(Math.random() * users.length)].id,
     //         review_id: reviews[Math.floor(Math.random() * reviews.length)].id,
     //     });
     // };
+
+    // // Pass through Wine
+    // const wines = await Wine.bulkCreate(wineData.map(wine => ({
+    //     ...wine,
+    //     user_id: users[Math.floor(Math.random() * users.length)].id,
+    //     review_id: reviews[Math.floor(Math.random() * reviews.length)].id,
+    // })), {
+    //     individualHooks: true,
+    //     returning: true,
+    // });
 
     process.exit(0);
 };

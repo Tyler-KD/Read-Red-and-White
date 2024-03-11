@@ -4,7 +4,7 @@ const { User } = require('../../models');
 
 // The `api/users` endpoint
 
-// Route to create/add a using user async/await
+// Route to create/add a user using async/await
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
