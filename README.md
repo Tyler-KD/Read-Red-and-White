@@ -3,7 +3,7 @@
 
 # Read-Red-and-White
 
-## Insert Slogan here
+## Get Lit Read Hard Get Smart!
 
 Table of Contents
   
