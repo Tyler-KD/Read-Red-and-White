@@ -62,7 +62,7 @@ const reviewPageHandler = async (event) => {
     event.preventDefault();
 
     if (event.target.matches("button")) {
-
+        // Targets the Add button as a delimiter
         const parentText = event.target.parentElement.textContent.split(' Add ')
         const title = parentText[0]
         const author = parentText[1].replace('Author:', '')
